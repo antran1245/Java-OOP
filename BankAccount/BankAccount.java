@@ -1,11 +1,25 @@
+import java.util.Random;
+
 public class BankAccount {
     private double checkingBalance;
     private double savingBalance;
     private static int account = 0;
     private static double totalAmount = 0;
+    private String accountNumber = "";
 
     public BankAccount() {
+        createAccountNumber();
         account++;
+    }
+
+    private void createAccountNumber() {
+        Random rand = new Random();
+        for(int i = 0; i < 10; i++) {
+            accountNumber += rand.nextInt(10);
+        }
+    }
+    public String getAccountNumber() {
+        return accountNumber;
     }
 
     public double getCheckingBalance() {
